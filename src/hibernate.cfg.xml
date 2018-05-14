@@ -9,9 +9,9 @@
 
         <!-- Database connection settings -->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/agency</property>
-        <property name="connection.username">root</property>
-        <property name="connection.password"></property>
+        <property name="connection.url">jdbc:mysql://192.168.0.50:3306/agency</property>
+        <property name="connection.username">picasso_system</property>
+        <property name="connection.password">system</property>
 
         <!-- JDBC connection pool (use the built-in) -->
         <property name="connection.pool_size">1</property>

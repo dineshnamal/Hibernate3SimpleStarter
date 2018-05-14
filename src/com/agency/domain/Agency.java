@@ -17,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -52,7 +53,7 @@ public class Agency {
 	private String name;
 
 	@Column(name = "DESCRIPTION")
-	@Lob // Lob on top of string default to CLOG - Charater log , Lob on Byte stream -
+	@Lob // Lob on top of string default to CLOG - Charater log , Lob on Byte stream -//
 			// BLOB ,
 	private String description;
 
@@ -77,12 +78,16 @@ public class Agency {
 			@Column(name = "AGENCY_ID_OF_BI") }, generator = "BINumberGenerator-uuid", type = @Type(type = "int"))
 	// private Set<BIServer> biServers;
 	private Collection<BIServer> biServers = new ArrayList<BIServer>();
-	
-	
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "COMMISSION_CREDITOR_ID")
-    @ForeignKey(name = "FK_AGENCY_COMMISSION_CREDITOR")    
-    private Creditor commissionCreditor;
+
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "COMMISSION_CREDITOR_ID")
+	@ForeignKey(name = "FK_AGENCY_COMMISSION_CREDITOR")
+	private Creditor commissionCreditor;
+
+	@OneToMany
+	@JoinColumn(name = "AGENCY_ID")
+//	@JoinTable(name="BRANCH_SERVICE",joinColumns=@JoinColumn(name="AGENCY_ID"),inverseJoinColumns=@JoinColumn(name="BRANCH_ID"))
+	private Collection<Branch> branch = new ArrayList<Branch>();
 
 	/*
 	 * @ElementCollection Create Sub table Create number of records = collection
@@ -90,7 +95,7 @@ public class Agency {
 	 * 
 	 */
 
-	// private Set<Consultant> consultants;
+	// private Set<Consultant> consult ants;
 
 	public Integer getId() {
 		return id;
@@ -163,9 +168,14 @@ public class Agency {
 	public void setCommissionCreditor(Creditor commissionCreditor) {
 		this.commissionCreditor = commissionCreditor;
 	}
-	
-	
-	
+
+	public Collection<Branch> getBranch() {
+		return branch;
+	}
+
+	public void setBranch(Collection<Branch> branch) {
+		this.branch = branch;
+	}
 
 	// public Set<Consultant> getConsultants() {
 	// return consultants;

@@ -21,3 +21,7 @@ Rename     ALT + SFIGT + R
 @JoinTable(name="AGENCY_BI_SERVER",joinColumns=@JoinColumn(name="AGENCY_ID"))
 @GenericGenerator(name = "BINumberGenerator-uuid", strategy = "com.agency.custom.BINumberGenerator")
 @CollectionId(columns = { @Column(name="AGENCY_ID_OF_BI") }, generator = "BINumberGenerator-uuid", type = @Type(type="int"))
+@OneToOne(fetch = FetchType.EAGER)
+@JoinColumn(name = "COMMISSION_CREDITOR_ID")
+@ForeignKey(name = "FK_AGENCY_COMMISSION_CREDITOR")
+@Lob  
