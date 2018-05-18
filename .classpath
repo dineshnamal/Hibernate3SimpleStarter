@@ -13,6 +13,6 @@
 	<classpathentry kind="lib" path="lib/required/jta-1.1.jar"/>
 	<classpathentry kind="lib" path="lib/required/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="lib" path="lib/javassist-3.12.0.GA.jar"/>
-	<classpathentry kind="lib" path="C:/tmp/code/Hibernate3SimpleStarter/lib/mysql/mysql-connector-java-5.1.36.jar"/>
+	<classpathentry kind="lib" path="lib/mysql/mysql-connector-java-6.0.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -23,6 +25,8 @@ public class BranchCommissionConfig {
 	private String name;
 
 	@ManyToMany
+
+	@JoinTable(name = "COMM_CONF_MAPPING", joinColumns = @JoinColumn(name = "BRANCH_ID"))
 	private Collection<Branch> branchList = new ArrayList<Branch>();
 
 	public Integer getId() {

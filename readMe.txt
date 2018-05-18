@@ -25,3 +25,4 @@ Rename     ALT + SFIGT + R
 @JoinColumn(name = "COMMISSION_CREDITOR_ID")
 @ForeignKey(name = "FK_AGENCY_COMMISSION_CREDITOR")
 @Lob  
+@NotFound(action=NotFoundAction.IGNORE)
